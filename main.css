@@ -5,7 +5,7 @@ body {
   }
   
   .add-new-staff {
-    margin-bottom: 1rem!important;
+    margin-top: 1rem!important;
   }
   
   /* Custom page header */
@@ -47,7 +47,7 @@ body {
   /* Customize container */
   @media (min-width: 48em) {
     .container {
-      max-width: 46rem;
+    width: 80%;
     }
   }
   .container-narrow > hr {

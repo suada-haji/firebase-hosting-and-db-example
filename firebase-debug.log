@@ -1,36 +1,114 @@
-[debug] [2017-09-21T03:22:07.643Z] ----------------------------------------------------------------------
-[debug] [2017-09-21T03:22:07.645Z] Command:       /usr/local/Cellar/node/8.5.0/bin/node /usr/local/bin/firebase serve
-[debug] [2017-09-21T03:22:07.645Z] CLI Version:   3.11.0
-[debug] [2017-09-21T03:22:07.645Z] Platform:      darwin
-[debug] [2017-09-21T03:22:07.645Z] Node Version:  v8.5.0
-[debug] [2017-09-21T03:22:07.646Z] Time:          Thu Sep 21 2017 06:22:07 GMT+0300 (EAT)
-[debug] [2017-09-21T03:22:07.646Z] ----------------------------------------------------------------------
+[debug] [2017-09-21T08:00:00.858Z] ----------------------------------------------------------------------
+[debug] [2017-09-21T08:00:00.859Z] Command:       /usr/local/Cellar/node/8.5.0/bin/node /usr/local/bin/firebase serve
+[debug] [2017-09-21T08:00:00.860Z] CLI Version:   3.11.0
+[debug] [2017-09-21T08:00:00.860Z] Platform:      darwin
+[debug] [2017-09-21T08:00:00.860Z] Node Version:  v8.5.0
+[debug] [2017-09-21T08:00:00.860Z] Time:          Thu Sep 21 2017 11:00:00 GMT+0300 (EAT)
+[debug] [2017-09-21T08:00:00.860Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2017-09-21T03:22:07.659Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2017-09-21T03:22:07.660Z] > authorizing via signed-in user
-[debug] [2017-09-21T03:22:07.662Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
-[debug] [2017-09-21T03:22:07.662Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/dR5BV6iGfuh7hibSRExbf5J3vicGYfFqFjZcytN00H2SocULrlg9If_NEuf54ZkJ',
+[debug] [2017-09-21T08:00:00.871Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-09-21T08:00:00.871Z] > authorizing via signed-in user
+[debug] [2017-09-21T08:00:00.873Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-09-21T08:00:00.873Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/dR5BV6iGfuh7hibSRExbf5J3vicGYfFqFjZcytN00H2SocULrlg9If_NEuf54ZkJ',
   client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
   client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
   grant_type: 'refresh_token',
   scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
- Thu Sep 21 2017 06:22:07 GMT+0300 (EAT)
-[debug] [2017-09-21T03:22:08.331Z] <<< HTTP RESPONSE 200
-[debug] [2017-09-21T03:22:08.345Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/meal-attendance-app  
- Thu Sep 21 2017 06:22:08 GMT+0300 (EAT)
-[debug] [2017-09-21T03:22:09.775Z] <<< HTTP RESPONSE 200
-[debug] [2017-09-21T03:22:09.776Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/meal-attendance-app/tokens  
- Thu Sep 21 2017 06:22:09 GMT+0300 (EAT)
-[debug] [2017-09-21T03:22:10.843Z] <<< HTTP RESPONSE 200
+ Thu Sep 21 2017 11:00:00 GMT+0300 (EAT)
+[debug] [2017-09-21T08:00:01.849Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-21T08:00:01.863Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/meal-attendance-app  
+ Thu Sep 21 2017 11:00:01 GMT+0300 (EAT)
+[debug] [2017-09-21T08:00:03.567Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-21T08:00:03.568Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/meal-attendance-app/tokens  
+ Thu Sep 21 2017 11:00:03 GMT+0300 (EAT)
+[debug] [2017-09-21T08:00:04.576Z] <<< HTTP RESPONSE 200
 [info] 
 [info] === Serving from '/Users/suadahaji/webApps/presence'...
 [info] 
-[debug] [2017-09-21T03:22:10.847Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/meal-attendance-app  
- Thu Sep 21 2017 06:22:10 GMT+0300 (EAT)
-[debug] [2017-09-21T03:22:12.233Z] <<< HTTP RESPONSE 200
-[debug] [2017-09-21T03:22:12.233Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/95847112468/clients/_:getWebAppConfig  
- Thu Sep 21 2017 06:22:12 GMT+0300 (EAT)
-[debug] [2017-09-21T03:22:13.376Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-21T08:00:04.579Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/meal-attendance-app  
+ Thu Sep 21 2017 11:00:04 GMT+0300 (EAT)
+[debug] [2017-09-21T08:00:06.066Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-21T08:00:06.067Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/95847112468/clients/_:getWebAppConfig  
+ Thu Sep 21 2017 11:00:06 GMT+0300 (EAT)
+[debug] [2017-09-21T08:00:07.371Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: ./
+[info] ✔  hosting: Local server: http://localhost:5000
+
+[debug] [2017-09-21T10:22:17.016Z] Error: getaddrinfo ENOTFOUND www.gstatic.com www.gstatic.com:443
+    at errnoException (dns.js:53:10)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:95:26)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2017-09-21T10:22:17.017Z] Error: getaddrinfo ENOTFOUND www.gstatic.com www.gstatic.com:443
+    at errnoException (dns.js:53:10)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:95:26)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2017-09-21T10:22:17.018Z] Error: socket hang up
+    at createHangUpError (_http_client.js:345:15)
+    at TLSSocket.socketCloseListener (_http_client.js:377:23)
+    at emitOne (events.js:120:20)
+    at TLSSocket.emit (events.js:210:7)
+    at _handle.close (net.js:545:12)
+    at TCP.done [as _onclose] (_tls_wrap.js:356:7)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2017-09-21T10:22:17.019Z] Error: socket hang up
+    at createHangUpError (_http_client.js:345:15)
+    at TLSSocket.socketCloseListener (_http_client.js:377:23)
+    at emitOne (events.js:120:20)
+    at TLSSocket.emit (events.js:210:7)
+    at _handle.close (net.js:545:12)
+    at TCP.done [as _onclose] (_tls_wrap.js:356:7)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2017-09-21T10:22:17.019Z] Error: getaddrinfo ENOTFOUND www.gstatic.com www.gstatic.com:443
+    at errnoException (dns.js:53:10)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:95:26)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2017-09-21T10:22:17.020Z] Error: socket hang up
+    at createHangUpError (_http_client.js:345:15)
+    at TLSSocket.socketCloseListener (_http_client.js:377:23)
+    at emitOne (events.js:120:20)
+    at TLSSocket.emit (events.js:210:7)
+    at _handle.close (net.js:545:12)
+    at TCP.done [as _onclose] (_tls_wrap.js:356:7)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2017-09-21T10:22:58.811Z] ----------------------------------------------------------------------
+[debug] [2017-09-21T10:22:58.813Z] Command:       /usr/local/Cellar/node/8.5.0/bin/node /usr/local/bin/firebase serve
+[debug] [2017-09-21T10:22:58.813Z] CLI Version:   3.11.0
+[debug] [2017-09-21T10:22:58.813Z] Platform:      darwin
+[debug] [2017-09-21T10:22:58.813Z] Node Version:  v8.5.0
+[debug] [2017-09-21T10:22:58.814Z] Time:          Thu Sep 21 2017 13:22:58 GMT+0300 (EAT)
+[debug] [2017-09-21T10:22:58.814Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-09-21T10:22:58.824Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-09-21T10:22:58.824Z] > authorizing via signed-in user
+[debug] [2017-09-21T10:22:58.826Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-09-21T10:22:58.826Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/dR5BV6iGfuh7hibSRExbf5J3vicGYfFqFjZcytN00H2SocULrlg9If_NEuf54ZkJ',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Thu Sep 21 2017 13:22:58 GMT+0300 (EAT)
+[debug] [2017-09-21T10:22:59.534Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-21T10:22:59.555Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/meal-attendance-app  
+ Thu Sep 21 2017 13:22:59 GMT+0300 (EAT)
+[debug] [2017-09-21T10:23:01.028Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-21T10:23:01.029Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/meal-attendance-app/tokens  
+ Thu Sep 21 2017 13:23:01 GMT+0300 (EAT)
+[debug] [2017-09-21T10:23:02.061Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/suadahaji/webApps/presence'...
+[info] 
+[debug] [2017-09-21T10:23:02.064Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/meal-attendance-app  
+ Thu Sep 21 2017 13:23:02 GMT+0300 (EAT)
+[debug] [2017-09-21T10:23:04.583Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-21T10:23:04.583Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/95847112468/clients/_:getWebAppConfig  
+ Thu Sep 21 2017 13:23:04 GMT+0300 (EAT)
+[debug] [2017-09-21T10:23:07.442Z] <<< HTTP RESPONSE 200
 [info] i  hosting: Serving hosting files from: ./
 [info] ✔  hosting: Local server: http://localhost:5000
 

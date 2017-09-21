@@ -31,6 +31,7 @@
          lname: lname,
          cohort: cohort
         };
+        
 
         // Get key for new staff member
         var newStaffKey = firebase.database().ref().child('staff').push().key;
@@ -46,10 +47,16 @@
  }
 
  // Binding
- window.addEventListener('load', function() {
+$('document').ready(()=> {
+     // Saves staff on form submit
 
-    // Saves staff on form submit
-    messageForm.onsubmit = function(e) {
+     $('#addNewStaffButton').click(()=> {
+        $('#addStaffModal').modal('show');
+     })
+     $('.close-button').click(()=> {
+        $('#addStaffModal').modal('hide');        
+     })
+     messageForm.onsubmit = function(e) {
         e.preventDefault();
         var fn = firstName.value;
         var ln = lastName.value;
@@ -57,24 +64,29 @@
         var ch = cohort.value;
 
         if(fn && ln && sn && ch) {
-
             addNewStaff(fn, sn, ln, ch);
             var fn = '';
             var ln = '';
             var sn = '';
-            var ch = '';    
+            var ch = '';
+            $('#addStaffModal').modal('hide');        
         }
     };
- });
+})   
 
+ var count = 0;
  getStaff().on('child_added', function(snapshot) {
-     var count = 0;
+     count++;
      var table = $('#listStaff').DataTable();
     if(snapshot.exists()) {
         var content = '';
         var val = snapshot.val();
-        var dataset = [count++, val.fname, val.sname,val.lname, val.cohort];
-        console.log("Suada: " + val.fname + " " + val.sname  + " " + val.lname  + " " +  val.cohort);
+        if(val.fname) {
+            var dataset = [count, val.fname, val.sname,val.lname, val.cohort,'<p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><i class="fa fa-pencil" aria-hidden="true"></i></button></p>' , '<p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-danger btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit"><i class="fa fa-trash-o" aria-hidden="true"></i></button></p>' ];
+        } else {
+            var dataset = [count, "", " ", " ", " ", " ", " "];
+        }
+        
         table.rows.add([dataset]).draw();
         
     }
