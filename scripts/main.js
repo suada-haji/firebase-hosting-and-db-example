@@ -22,8 +22,6 @@
  var surName = document.getElementById('inputSName');
  var lastName = document.getElementById('inputLName');
  var cohort = document.getElementById('selectCohort');
- var submitButton = document.getElementById('addButton');
- var listStaff = document.getElementById('listStaff');
 
 
  function addNewStaff(fname, sname, lname, cohort) {
@@ -67,34 +65,19 @@
             var ch = '';    
         }
     };
-
-    // getStaff().on("value", function(snapshot) {
-    //     console.log(snapshot.val());
-    //   }, function (errorObject) {
-    //     console.log("The read failed: " + errorObject.code);
-    //   });
-   
  });
 
  getStaff().on('child_added', function(snapshot) {
      var count = 0;
-     console.log("Suada: " + snapshot.val().fname);
+     var table = $('#listStaff').DataTable();
     if(snapshot.exists()) {
         var content = '';
         var val = snapshot.val();
-        content += '<tr>';
-        content += '<td>' + count + '</td>';
-        content += '<td>' + val.fname + '</td>';
-        content += '<td>' + val.sname + '</td>';
-        content += '<td>' + val.lname + '</td>';
-        content += '<td>' + val.cohort + '</td>';
-        content += '<tr>';
-       
-        $('#listStaff').append(content);
+        var dataset = [count++, val.fname, val.sname,val.lname, val.cohort];
+        console.log("Suada: " + val.fname + " " + val.sname  + " " + val.lname  + " " +  val.cohort);
+        table.rows.add([dataset]).draw();
+        
     }
 });
-
- 
-
  
 
