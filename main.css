@@ -3,6 +3,10 @@ body {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
   }
+
+  .modal-button {
+    margin-left: 2rem;
+  }
   
   .add-new-staff {
     margin-top: 1rem!important;

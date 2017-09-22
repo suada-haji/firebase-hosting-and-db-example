@@ -22,19 +22,25 @@
  var surName = document.getElementById('inputSName');
  var lastName = document.getElementById('inputLName');
  var cohort = document.getElementById('selectCohort');
+ var editBtn = document.getElementById('editButton');
+ var tableStaff = $('#listStaff').DataTable();
+ var tablle = document.getElementById('table-body');
+ var currentUID;
 
 
  function addNewStaff(fname, sname, lname, cohort) {
-     var postData = {
-         fname: fname,
-         sname: sname,
-         lname: lname,
-         cohort: cohort
-        };
-        
+    
 
         // Get key for new staff member
         var newStaffKey = firebase.database().ref().child('staff').push().key;
+
+        var postData = {
+            id: newStaffKey,
+            fname: fname,
+            sname: sname,
+            lname: lname,
+            cohort: cohort
+           };
 
         var updates = {};
         updates['/staff/' + newStaffKey] = postData;
@@ -44,6 +50,13 @@
 
  function getStaff() {
      return firebase.database().ref('staff');
+ }
+
+ function getStaffDetails(fname, sname, lname, cohort) {
+     firstName.value = fname;
+     surName.value = sname;
+     lastName.value = lname;
+     cohort.value = cohort;
  }
 
  // Binding
@@ -56,6 +69,7 @@ $('document').ready(()=> {
      $('.close-button').click(()=> {
         $('#addStaffModal').modal('hide');        
      })
+    
      messageForm.onsubmit = function(e) {
         e.preventDefault();
         var fn = firstName.value;
@@ -69,27 +83,33 @@ $('document').ready(()=> {
             var ln = '';
             var sn = '';
             var ch = '';
+            messageForm.reset();
             $('#addStaffModal').modal('hide');        
         }
     };
-})   
+    var count = 0;
+    
+    getStaff().on('child_added', function(snapshot) {
+        count++;
+       
+       if(snapshot.exists()) {
+           var content = '';
+           var val = snapshot.val();
+           if(val.fname) {
+               var dataset = [count, val.fname, val.sname,val.lname, val.cohort];
+           } else {
+               var dataset = [count, "", " ", " ", " ", " ", " "];
+           }
+           
+           tableStaff.rows.add([dataset]).draw();
+           currentUID = snapshot.key;
+   
+       }
+   });
+       
+})
 
- var count = 0;
- getStaff().on('child_added', function(snapshot) {
-     count++;
-     var table = $('#listStaff').DataTable();
-    if(snapshot.exists()) {
-        var content = '';
-        var val = snapshot.val();
-        if(val.fname) {
-            var dataset = [count, val.fname, val.sname,val.lname, val.cohort,'<p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><i class="fa fa-pencil" aria-hidden="true"></i></button></p>' , '<p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-danger btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit"><i class="fa fa-trash-o" aria-hidden="true"></i></button></p>' ];
-        } else {
-            var dataset = [count, "", " ", " ", " ", " ", " "];
-        }
-        
-        table.rows.add([dataset]).draw();
-        
-    }
-});
- 
+
+
+
 
