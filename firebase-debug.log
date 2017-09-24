@@ -34,3 +34,39 @@
 [info] i  hosting: Serving hosting files from: ./
 [info] ✔  hosting: Local server: http://localhost:5000
 
+[debug] [2017-09-24T06:43:02.694Z] ----------------------------------------------------------------------
+[debug] [2017-09-24T06:43:02.696Z] Command:       /usr/local/Cellar/node/8.5.0/bin/node /usr/local/bin/firebase serve
+[debug] [2017-09-24T06:43:02.696Z] CLI Version:   3.11.0
+[debug] [2017-09-24T06:43:02.696Z] Platform:      darwin
+[debug] [2017-09-24T06:43:02.696Z] Node Version:  v8.5.0
+[debug] [2017-09-24T06:43:02.697Z] Time:          Sun Sep 24 2017 09:43:02 GMT+0300 (EAT)
+[debug] [2017-09-24T06:43:02.697Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-09-24T06:43:02.710Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-09-24T06:43:02.710Z] > authorizing via signed-in user
+[debug] [2017-09-24T06:43:02.712Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-09-24T06:43:02.713Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/dR5BV6iGfuh7hibSRExbf5J3vicGYfFqFjZcytN00H2SocULrlg9If_NEuf54ZkJ',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sun Sep 24 2017 09:43:02 GMT+0300 (EAT)
+[debug] [2017-09-24T06:43:03.360Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-24T06:43:03.374Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/meal-attendance-app  
+ Sun Sep 24 2017 09:43:03 GMT+0300 (EAT)
+[debug] [2017-09-24T06:43:05.897Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-24T06:43:05.899Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/meal-attendance-app/tokens  
+ Sun Sep 24 2017 09:43:05 GMT+0300 (EAT)
+[debug] [2017-09-24T06:43:07.130Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/suadahaji/webApps/presence'...
+[info] 
+[debug] [2017-09-24T06:43:07.133Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/meal-attendance-app  
+ Sun Sep 24 2017 09:43:07 GMT+0300 (EAT)
+[debug] [2017-09-24T06:43:08.602Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-24T06:43:08.603Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/95847112468/clients/_:getWebAppConfig  
+ Sun Sep 24 2017 09:43:08 GMT+0300 (EAT)
+[debug] [2017-09-24T06:43:09.588Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: ./
+[info] ✔  hosting: Local server: http://localhost:5000
+

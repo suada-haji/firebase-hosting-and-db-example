@@ -48,7 +48,10 @@
               <div class="header clearfix">
                 <form class="form-inline mt-2 mt-md-0 float-right">
                     <!-- Button trigger modal -->
+                    <button type="button" id='editButton' class="btn btn-outline-success my-2 my-sm-0 add-new-staff">Edit</button>
+                    <button type="button" id='deleteButton' class="btn btn-outline-success my-2 my-sm-0 add-new-staff">Delete</button>
                     <button type="button" id='addNewStaffButton' class="btn btn-outline-success my-2 my-sm-0 add-new-staff">Add New Staff</button>
+                    
                   </form>
                 <h3 class="text-muted">PRESENCE</h3>
               </div>
@@ -60,7 +63,6 @@
                         <th>SurName</th>
                         <th>Last Name</th>
                         <th>Cohort</th>
-                        <th>Actions</th>
                       </tr>
                     </thead>
 
@@ -128,12 +130,31 @@
                                       <button type="button" class="btn btn-secondary close-button">Close</button>
                                       <button id="addButton" type="submit" class="btn btn-primary">Save changes</button>
                                     </div>
-                             </form>
-                            
-                      </div>
-                      
+                             </form>     
+                      </div> 
                     </div>
                   </div>
+                </div>
+
+                <div class="modal fade" tabindex="-1" role="dialog" id="deleteStaffModal">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title">Delete Staff</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      </div>
+                      <div class="modal-body">
+                        <p>Are you sure you want to continue?</p>
+                      </div>
+                      <div class="modal-footer">
+                        <form action="" id="deleteForm">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                            <button type="submit" class="btn btn-primary" id="delete_btn">Yes</button>
+                        </form>
+                        
+                      </div>
+                    </div><!-- /.modal-content -->
+                  </div><!-- /.modal-dialog -->
                 </div>
                   
                 <footer class="footer">

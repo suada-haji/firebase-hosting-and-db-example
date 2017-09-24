@@ -23,13 +23,19 @@
  var lastName = document.getElementById('inputLName');
  var cohort = document.getElementById('selectCohort');
  var editBtn = document.getElementById('editButton');
+ var deleteForm = document.getElementById('deleteForm');
  var rootRef = firebase.database().ref().child("staff");
-//  var tableStaff = $('#listStaff').DataTable({
-//     select: true
-//  });
  var tablle = document.getElementById('table-body');
  var currentUID;
+ var rowkey;
 
+ function setRowKey(key) {
+     rowkey = key;
+ }
+
+ function getRowKey() {
+     return rowkey;
+ }
 
  function addNewStaff(fname, sname, lname, cohort, newStaffKey) {
      if(!newStaffKey) {
@@ -97,7 +103,7 @@
             var ch = '';
             messageForm.reset();
             $('#addStaffModal').modal('hide');
-            window.location.reload();        
+            // window.location.reload();        
         }
     };
  }
@@ -109,18 +115,30 @@ $('document').ready(()=> {
      $('#addNewStaffButton').click(()=> {
         $('#addStaffModal').modal('show');
      })
+     $('#deleteButton').click(()=> {
+        $('#deleteStaffModal').modal('show');
+     })
      $('.close-button').click(()=> {
         $('#addStaffModal').modal('hide');        
      })
-    
-     submitForm();
+     deleteForm.onsubmit = function(e) {
+        var key = getRowKey();
+        var itemToRemove = rootRef.child(key);
+        itemToRemove.remove()
+        .then(function() {
+         console.log("Remove succeeded.")
+        })
+        .catch(function(error) {
+         console.log("Remove failed: " + error.message)
+        });
+        $('#deleteStaffModal').modal('hide');  
+     }
+
+    submitForm();
     var count = 0;
+    document.getElementById("editButton").disabled = true;
+    document.getElementById("deleteButton").disabled = true;
 
-    
-
-
-
-    
     rootRef.orderByChild("fname").on('child_added', function(snapshot) {
         count++;
        
@@ -138,11 +156,8 @@ $('document').ready(()=> {
                                     "<td class='mdl-data-table__cell--non-numeric'>" + sname + "</td>" +
                                     "<td class='mdl-data-table__cell--non-numeric'>" + lname + "</td>" +
                                     "<td class='mdl-data-table__cell--non-numeric'>" + cohort + "</td>" +
-      
-                                    "<td class='mdl-data-table__cell--non-numeric'><div buttons>"+
-                                    "<button key='"+ assetKey +"' class='edit_btn btn btn-primary my-2 my-sm-0 update-staff' ><i class='fa fa-pencil' aria-hidden='true'></i></button>"+" "+
-                                            "<button key='"+ assetKey +"' class='delete-btn btn btn-danger my-2 my-sm-0'><i class='fa fa-trash' aria-hidden='true'></i></button>"+" "+
-                                            "</div></td></tr>");
+                                    "</tr>");
+            
            } 
        }
    });
@@ -155,64 +170,60 @@ $('document').ready(()=> {
         var sname = snapshot.child("sname").val();
         var lname = snapshot.child("lname").val();
         var cohort = snapshot.child("cohort").val();
+        var editrow = "row"+assetKey;
         console.log(fname);
+
+        document.getElementById(editrow).innerHTML = "<td class='mdl-data-table__cell--non-numeric'>" + fname + "</td>" +
+        "<td class='mdl-data-table__cell--non-numeric'>" + sname + "</td>" +
+        "<td class='mdl-data-table__cell--non-numeric'>" + lname + "</td>" +
+        "<td class='mdl-data-table__cell--non-numeric'>" + cohort + "</td>";
   
-        $("#listStaff").append("<tr id='row"+assetKey+"' class='clickable-row' key='"+ assetKey +"'>"+
-                                "<td class='mdl-data-table__cell--non-numeric'>" + fname + "</td>" +
-                                "<td class='mdl-data-table__cell--non-numeric'>" + sname + "</td>" +
-                                "<td class='mdl-data-table__cell--non-numeric'>" + lname + "</td>" +
-                                "<td class='mdl-data-table__cell--non-numeric'>" + cohort + "</td>" +
-  
-                                "<td class='mdl-data-table__cell--non-numeric'><div buttons>"+
-                                "<button key='"+ assetKey +"' class='edit_btn btn btn-outline-success my-2 my-sm-0 update-staff' ><i class='fa fa-pencil' aria-hidden='true'></i></button>"+" "+
-                                        "<button key='"+ assetKey +"' class='delete-btn btn btn-danger my-2 my-sm-0'><i class='fa fa-trash' aria-hidden='true'></i></button>"+" "+
-                                        "</div></td></tr>");
        } 
        
     });
 
     rootRef.on('child_removed', function(snapshot) {
         var key = snapshot.key;
+        var val = snapshot.val();
         $('#'+key).remove();
-    
-      });
-  
-});
-
-$('#listStaff').on('click', ".delete-btn", function(){ 
-var key = $(this).attr('key');
-var itemToRemove = rootRef.child(key);
-itemToRemove.remove()
-.then(function() { // removed from Firebase DB
- console.log("Remove succeeded.")
-})
-.catch(function(error) {
- console.log("Remove failed: " + error.message)
-});
-
-// window.location.reload();
-
-});
-
-$('#listStaff').on('click', ".edit_btn", function(){ 
-    var key = $(this).attr('key');
-    var itemToUpdate = rootRef.child(key);
-    firebase.database().ref("staff/" + key).once('value').then(function(snapshot) {
-        firstName.value = snapshot.val().fname;
-        surName.value = snapshot.val().sname;
-        lastName.value = snapshot.val().lname;
-        cohort.value = snapshot.val().cohort;
-      });
-      $('#addStaffModal').modal('show');
-      submitForm(key);
+        var editrow = "row"+assetKey;
+        document.getElementById(editrow).remove();
     });
+});
+$('#editButton').on('click', function(){ 
+        var key = getRowKey();
+        var itemToUpdate = rootRef.child(key);
+        firebase.database().ref("staff/" + key).once('value').then(function(snapshot) {
+            firstName.value = snapshot.val().fname;
+            surName.value = snapshot.val().sname;
+            lastName.value = snapshot.val().lname;
+            cohort.value = snapshot.val().cohort;
+          });
+          $('#addStaffModal').modal('show');
+          submitForm(key);
+        });
 
     $("#listStaff").on("click", "tr", function () {
         var col = $(this).index();
-        $(this).addClass("highlight").siblings().removeClass("highlight");
+        var key = $(this).attr('key');
+        setRowKey(key);
+        var editBtn = $('#editButton');
+        var deleteBtn = $('#deleteButton');
         
-          console.log("OK");
-              
+        if($(this).hasClass('highlight')){
+            $(this).removeClass('highlight'); 
+          } else {
+            $(this).addClass('highlight').siblings().removeClass('highlight');
+          }
+
+        if(!$(this).hasClass('highlight')){
+            console.log("disabled");
+            editBtn.prop('disabled', true);
+            deleteBtn.prop('disabled', true);
+        } else {
+            editBtn.prop('disabled', false);
+            deleteBtn.prop('disabled', false);
+        }    
      });
 
 
