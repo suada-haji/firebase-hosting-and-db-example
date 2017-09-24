@@ -10,6 +10,12 @@ body {
   
   .add-new-staff {
     margin-top: 1rem!important;
+    margin-right: 1rem!important;
+  }
+
+  .update-staff {
+    margin-left: 3rem!important;
+    margin-right: 2rem!important;
   }
   
   /* Custom page header */
@@ -23,6 +29,8 @@ body {
     margin-bottom: 0;
     line-height: 3rem;
   }
+
+.highlight { background-color: #e5e5e5; }
   
   /* Custom page footer */
   .footer {
@@ -42,6 +50,9 @@ body {
     background-color: #121A26;
     border-color: #121A26;
   }
+  .btn-outline-success:disabled {
+    color: #6B798E;
+  }
   .btn-outline-success:focus {
     box-shadow: 0 0 0 2px rgba(18,26,38,.5);
   }
@@ -51,7 +62,7 @@ body {
   /* Customize container */
   @media (min-width: 48em) {
     .container {
-    width: 80%;
+    width: 60%;
     }
   }
   .container-narrow > hr {
